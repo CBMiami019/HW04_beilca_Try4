@@ -1,3 +1,5 @@
+//Help was received in this code from Adam Rasfeld, and Jason Weber (both in CSE274, but different sections)
+
 //Many of these include files are not necessary, but they were used when trying to implement my K-D Tree
 #include "cinder/app/AppBasic.h"
 #include "cinder/gl/gl.h"
@@ -213,6 +215,8 @@ void HW04_beilcaApp::setup(){
 
 void HW04_beilcaApp::mouseDown( MouseEvent event ){
 
+
+	//Help with getting the right x and y values from Jason Weber (weberjt)
 	if(event.isLeftDown()){
 		//Nearly Satisfies Goal B which is to visually show which Starbucks is the closest.
 		//It doesn't work perfectly, but it shows a different result everytime.
@@ -264,10 +268,14 @@ void HW04_beilcaApp::draw()
 	gl::color(Color8u(200,200,200));
 	gl::drawSolidRect(Rectf(20,20, kAppWidth-20, kAppHeight-20));
 	
+
+
 	if(drawStarbucks){
 		//This satisfies HW04Phase02 Basic Goal A- 20 pts
 		gl::color(Color8u(255, 0, 0));
 		for (int i = 0; i < count; i++){
+
+			//The understanding of Vec2f and how to draw things using "gl::" was from Jason Weber (weberjt)
 			gl::drawSolidCircle(Vec2f((data[i].x * 700 + 50), 600-(data[i].y * 525 + 50)), 2);
 		}
 		//When I draw this, my nearestStarbucks seems to be a bit off!
